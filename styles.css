@@ -573,3 +573,249 @@ img {
         order: 1;
     }
 }
+
+/* Programa de Fidelidade */
+.loyalty-program {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    padding: 80px 0;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.loyalty-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.loyalty-badge {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.loyalty-program h3 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.loyalty-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.loyalty-card {
+    background: rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    padding: 20px;
+    min-width: 150px;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.loyalty-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.loyalty-card.special {
+    background: rgba(255, 215, 0, 0.3);
+    border-color: gold;
+    transform: scale(1.1);
+}
+
+.stamp {
+    display: block;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.loyalty-text {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    opacity: 0.9;
+}
+
+/* Plano de Assinatura */
+.subscription-plan {
+    background: var(--dark-bg);
+    padding: 80px 0;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.subscription-content {
+    max-width: 500px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+    padding: 50px 30px;
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(201, 166, 107, 0.3);
+}
+
+.subscription-badge {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.subscription-plan h4 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.subscription-price {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 20px 0;
+}
+
+.subscription-price span {
+    font-size: 1.2rem;
+    color: #aaa;
+}
+
+.subscription-benefits {
+    list-style: none;
+    text-align: left;
+    margin: 30px 0;
+}
+
+.subscription-benefits li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+}
+
+.subscription-benefits li:last-child {
+    border-bottom: none;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary-color);
+    padding: 15px 40px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    font-weight: bold;
+    transition: var(--transition);
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+/* Galeria de Imagens */
+.gallery-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 20px;
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay span {
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Referência de Localização */
+.location-reference {
+    margin-top: 15px !important;
+    padding-top: 15px;
+    border-top: 2px dashed var(--primary-color);
+}
+
+.location-reference strong {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .loyalty-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .loyalty-card.special {
+        transform: scale(1);
+    }
+    
+    .subscription-content {
+        margin: 0 15px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .loyalty-program h3 {
+        font-size: 1.8rem;
+    }
+    
+    .subscription-price {
+        font-size: 2.2rem;
+    }
+}
