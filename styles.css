@@ -887,3 +887,269 @@ img {
         font-size: 2.2rem;
     }
 }
+
+/* ========================================
+   ESTILOS DOS LAYOUTS ALTERNATIVOS
+   ======================================== */
+
+/* Notificação de mudança de layout */
+.layout-notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--primary-color), #000);
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    z-index: 10000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Layout Clássico (padrão) */
+body.layout-classico .header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+}
+
+body.layout-classico .logo-image {
+    max-height: 60px;
+}
+
+/* Layout Moderno - Grid e assimetria */
+body.layout-moderno .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: 80vh;
+}
+
+body.layout-moderno .hero-content {
+    padding: 4rem;
+    background: rgba(255, 255, 255, 0.95);
+    margin: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+body.layout-moderno .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+body.layout-moderno .service-card {
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 15px 15px 0;
+}
+
+body.layout-moderno .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+body.layout-moderno .logo-image {
+    max-height: 70px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Layout Minimalista - Clean e espaçado */
+body.layout-minimalista * {
+    letter-spacing: 0.5px;
+}
+
+body.layout-minimalista .container {
+    max-width: 1000px;
+}
+
+body.layout-minimalista h1,
+body.layout-minimalista h2,
+body.layout-minimalista h3 {
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+body.layout-minimalista .service-card,
+body.layout-minimalista .testimonial-card {
+    border: 1px solid #eee;
+    box-shadow: none;
+}
+
+body.layout-minimalista .btn-primary,
+body.layout-minimalista .btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+body.layout-minimalista .btn-primary:hover,
+body.layout-minimalista .btn-secondary:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+body.layout-minimalista .logo-image {
+    max-height: 50px;
+    opacity: 0.9;
+}
+
+body.layout-minimalista .nav-links a {
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Layout Vintage Bold - Cores fortes e tipografia marcante */
+body.layout-vintage {
+    background: #f4e4c1;
+}
+
+body.layout-vintage .header {
+    background: #3d2b1f;
+    border-bottom: 3px solid #c9a66b;
+}
+
+body.layout-vintage h1,
+body.layout-vintage h2,
+body.layout-vintage h3 {
+    font-family: 'Playfair Display', serif;
+    color: #3d2b1f;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+body.layout-vintage .service-card {
+    background: #fff8e7;
+    border: 2px solid #3d2b1f;
+    box-shadow: 5px 5px 0px #3d2b1f;
+}
+
+body.layout-vintage .btn-primary {
+    background: #3d2b1f;
+    color: #c9a66b;
+    border: 2px solid #3d2b1f;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+body.layout-vintage .btn-primary:hover {
+    background: #c9a66b;
+    color: #3d2b1f;
+}
+
+body.layout-vintage .logo-image {
+    max-height: 80px;
+    filter: sepia(0.3);
+}
+
+body.layout-vintage .gallery-item img {
+    filter: sepia(0.4);
+}
+
+body.layout-vintage .gallery-item:hover img {
+    filter: sepia(0);
+}
+
+/* Layout Dark - Tema escuro premium */
+body.layout-dark {
+    background: #0a0a0a;
+    color: #e0e0e0;
+}
+
+body.layout-dark .header {
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    border-bottom: 1px solid #333;
+}
+
+body.layout-dark h1,
+body.layout-dark h2,
+body.layout-dark h3,
+body.layout-dark h4 {
+    color: #c9a66b;
+}
+
+body.layout-dark p {
+    color: #bbb;
+}
+
+body.layout-dark .service-card,
+body.layout-dark .testimonial-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+}
+
+body.layout-dark .service-card:hover {
+    background: #222;
+    border-color: var(--primary-color);
+}
+
+body.layout-dark .btn-primary {
+    background: linear-gradient(135deg, #c9a66b, #8b6f2e);
+    color: #000;
+}
+
+body.layout-dark .btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+body.layout-dark .logo-image {
+    max-height: 65px;
+    filter: brightness(1.2);
+}
+
+body.layout-dark .gallery-overlay {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+body.layout-dark .contact-form input,
+body.layout-dark .contact-form textarea,
+body.layout-dark .contact-form select {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+body.layout-dark .contact-form input:focus,
+body.layout-dark .contact-form textarea:focus,
+body.layout-dark .contact-form select:focus {
+    border-color: var(--primary-color);
+}
+
+body.layout-dark .loyalty-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+}
+
+body.layout-dark .subscription-content {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 1px solid #333;
+}
+
+/* Efeito extra no logotipo para indicar interatividade */
+.logo {
+    transition: all 0.3s ease;
+}
+
+.logo:hover .logo-image {
+    filter: brightness(1.1);
+}
+
+/* Ajuste responsivo para os layouts */
+@media (max-width: 768px) {
+    body.layout-moderno .hero {
+        grid-template-columns: 1fr;
+    }
+    
+    body.layout-moderno .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    body.layout-vintage .service-card {
+        box-shadow: 3px 3px 0px #3d2b1f;
+    }
+}

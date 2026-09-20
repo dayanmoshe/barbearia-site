@@ -1,6 +1,79 @@
 // Menu Mobile Toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+const logoBtn = document.querySelector('.logo');
+
+// Variável para controlar o layout atual
+let layoutAtual = 0;
+const layouts = ['layout-classico', 'layout-moderno', 'layout-minimalista', 'layout-vintage', 'layout-dark'];
+
+// Função para mudar o layout
+function mudarLayout() {
+    // Remove o layout atual
+    if (layouts[layoutAtual]) {
+        document.body.classList.remove(layouts[layoutAtual]);
+    }
+    
+    // Avança para o próximo layout
+    layoutAtual = (layoutAtual + 1) % layouts.length;
+    
+    // Adiciona o novo layout
+    document.body.classList.add(layouts[layoutAtual]);
+    
+    // Mostra notificação
+    const nomesLayouts = ['Clássico', 'Moderno', 'Minimalista', 'Vintage', 'Dark'];
+    mostrarNotificacao(`Layout ${nomesLayouts[layoutAtual]} ativado!`);
+    
+    // Salva preferência no localStorage
+    localStorage.setItem('layoutPreferido', layoutAtual.toString());
+}
+
+// Mostrar notificação temporária
+function mostrarNotificacao(mensagem) {
+    const notificacao = document.createElement('div');
+    notificacao.className = 'layout-notification';
+    notificacao.textContent = mensagem;
+    document.body.appendChild(notificacao);
+    
+    setTimeout(() => {
+        notificacao.style.opacity = '1';
+        notificacao.style.transform = 'translateY(0)';
+    }, 10);
+    
+    setTimeout(() => {
+        notificacao.style.opacity = '0';
+        notificacao.style.transform = 'translateY(-20px)';
+        setTimeout(() => notificacao.remove(), 300);
+    }, 2000);
+}
+
+// Adicionar evento de clique ao logotipo
+if (logoBtn) {
+    logoBtn.style.cursor = 'pointer';
+    logoBtn.title = 'Clique para mudar o layout';
+    logoBtn.addEventListener('click', mudarLayout);
+    
+    // Adiciona efeito visual ao passar o mouse
+    logoBtn.addEventListener('mouseenter', () => {
+        logoBtn.style.transform = 'scale(1.05)';
+        logoBtn.style.transition = 'transform 0.3s ease';
+    });
+    
+    logoBtn.addEventListener('mouseleave', () => {
+        logoBtn.style.transform = 'scale(1)';
+    });
+}
+
+// Carregar layout salvo (se houver)
+window.addEventListener('load', () => {
+    const layoutSalvo = localStorage.getItem('layoutPreferido');
+    if (layoutSalvo) {
+        layoutAtual = parseInt(layoutSalvo);
+        if (layouts[layoutAtual]) {
+            document.body.classList.add(layouts[layoutAtual]);
+        }
+    }
+});
 
 if (menuToggle) {
     menuToggle.addEventListener('click', () => {
