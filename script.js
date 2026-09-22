@@ -132,25 +132,50 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Formulário de agendamento
+// Formulário de agendamento - Envia para WhatsApp
 const form = document.getElementById('agendamentoForm');
 
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        // Coletar dados do formulário
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        
-        // Simulação de envio
-        alert('✅ Agendamento enviado com sucesso!\n\nEm breve entraremos em contato para confirmar seu horário.\n\nObrigado pela preferência! 💈');
-        
+
+        // Obter valores dos campos
+        const nome = form.querySelector('input[type="text"]').value;
+        const email = form.querySelector('input[type="email"]').value;
+        const telefone = form.querySelector('input[type="tel"]').value;
+        const servicoSelect = form.querySelector('select');
+        const servico = servicoSelect.options[servicoSelect.selectedIndex].text;
+        const dataAgendamento = form.querySelector('input[type="date"]').value;
+        const horaAgendamento = form.querySelector('input[type="time"]').value;
+        const observacoes = form.querySelector('textarea').value || 'Sem observações';
+
+        // Formatar data para o padrão brasileiro
+        const dataFormatada = dataAgendamento.split('-').reverse().join('/');
+
+        // Criar mensagem do WhatsApp
+        const mensagem = `📅 *Novo Agendamento*%0A%0A` +
+            `*Nome:* ${nome}%0A` +
+            `*Email:* ${email}%0A` +
+            `*Telefone:* ${telefone}%0A` +
+            `*Serviço:* ${servico}%0A` +
+            `*Data:* ${dataFormatada}%0A` +
+            `*Horário:* ${horaAgendamento}%0A` +
+            `*Observações:* ${observacoes}%0A%0A` +
+            `Gostaria de confirmar este agendamento!`;
+
+        // Número de WhatsApp da barbearia
+        const whatsappNumero = '5511930695858';
+
+        // Criar URL do WhatsApp
+        const whatsappUrl = `https://wa.me/${whatsappNumero}?text=${mensagem}`;
+
+        // Abrir WhatsApp em nova aba
+        window.open(whatsappUrl, '_blank');
+
         // Limpar formulário
         form.reset();
-        
-        // Aqui você pode integrar com um backend ou serviço de email
-        console.log('Dados do agendamento:', data);
+
+        console.log('Redirecionando para WhatsApp com agendamento');
     });
 }
 
